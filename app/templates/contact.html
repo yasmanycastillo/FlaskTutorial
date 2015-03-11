@@ -7,58 +7,64 @@
                 <h2>Contact us</h2>
                 <div class="alert alert-warning flash">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        {% for message in form.name.errors %}
-                            <strong>{{ message }}</strong>
-                        {% endfor %}
+                {% if success %}
+                    <h3>Thank you for your message. We'll get back to you shortly.</h3>
+                    <p>Be free to return to <a href="{{ url_for('home')}}"> home</a></p>
+                {% else %}
+                    {% for message in form.name.errors %}
+                        <p><strong>{{ message }}</strong></p>
+                    {% endfor %}
 
-                        {% for message in form.email.errors %}
-                                <strong>{{ message }}</strong>
-                        {% endfor %}
+                    {% for message in form.email.errors %}
+                            <p><strong>{{ message }}</strong></p>
+                    {% endfor %}
 
-                        {% for message in form.subject.errors %}
-                                <strong>{{ message }}</strong>
-                        {% endfor %}
+                    {% for message in form.subject.errors %}
+                            <p><strong>{{ message }}</strong></p>
+                    {% endfor %}
 
-                        {% for message in form.message.errors %}
-                                <strong>{{ message }}</strong>
-                        {% endfor %}
+                    {% for message in form.message.errors %}
+                            <p><strong>{{ message }}</strong></p>
+                    {% endfor %}
+
                 </div>
 
 
-                <form action="{{ url_for('contact')}}" method="POST" role="form">
-                    <legend></legend>
-                    {{ form.hidden_tag() }}
+                    <form action="{{ url_for('contact')}}" method="POST" role="form">
+                        <legend></legend>
+                        {{ form.hidden_tag() }}
 
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-user"></span>
-                        </span>
-                        {{ form.name(class='form-control') }}
-                    </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </span>
+                            {{ form.name(class='form-control') }}
+                        </div>
 
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-envelope"></span>
-                        </span>
-                        {{ form.email(class='form-control') }}
-                    </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </span>
+                            {{ form.email(class='form-control') }}
+                        </div>
 
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-tags"></span>
-                        </span>
-                        {{ form.subject(class='form-control') }}
-                    </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-tags"></span>
+                            </span>
+                            {{ form.subject(class='form-control') }}
+                        </div>
 
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-comment"></span>
-                        </span>
-                        {{ form.message(class='form-control') }}
-                    </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-comment"></span>
+                            </span>
+                            {{ form.message(class='form-control') }}
+                        </div>
 
-                    <center>{{ form.submit(class="btn btn-primary") }}</center>
-                </form>
+                        <center>{{ form.submit(class="btn btn-primary") }}</center>
+                    </form>
+                {% endif%}
             </div>
         </div>
     </div>
