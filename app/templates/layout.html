@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="{{ url_for('home')}}">Home</a></li>
                     <li><a href="{{ url_for('about')}}">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{{ url_for('contact')}}">Contact</a></li>
                     <li><a href="#login">Login</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -45,5 +45,16 @@
     </footer>
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}" type="text/javascript" charset="utf-8"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8" ></script>
+    <script>
+        jQuery(document).ready(function($) {
+            var formID = $(this).parents("form").attr("id");
+            //formID.addClass('form-control');
+            console.log(formID);
+        });
+            //var wtf = $(this).parents("form").attr("id");
+            //$wtf.addClass('form-control');
+            //var formID = $(this).parents("form").attr("id");
+            //console.log(formID);
+    </script>
 </body>
 </html>

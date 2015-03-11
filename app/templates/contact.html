@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="container">
+            <div class="well">
+                <h2>Contact us</h2>
+                <div class="alert alert-warning flash">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {% for message in form.name.errors %}
+                            <strong>{{ message }}</strong>
+                        {% endfor %}
+
+                        {% for message in form.email.errors %}
+                                <strong>{{ message }}</strong>
+                        {% endfor %}
+
+                        {% for message in form.subject.errors %}
+                                <strong>{{ message }}</strong>
+                        {% endfor %}
+
+                        {% for message in form.message.errors %}
+                                <strong>{{ message }}</strong>
+                        {% endfor %}
+                </div>
+
+
+                <form action="{{ url_for('contact')}}" method="POST" role="form">
+                    <legend></legend>
+                    {{ form.hidden_tag() }}
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </span>
+                        {{ form.name(class='form-control') }}
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                        {{ form.email(class='form-control') }}
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-tags"></span>
+                        </span>
+                        {{ form.subject(class='form-control') }}
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-comment"></span>
+                        </span>
+                        {{ form.message(class='form-control') }}
+                    </div>
+
+                    <center>{{ form.submit(class="btn btn-primary") }}</center>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
