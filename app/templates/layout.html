@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intro to Flask</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
+<body>
+    <header id="header" class="">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Intro Flask</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ url_for('home')}}">Home</a></li>
+                    <li><a href="{{ url_for('about')}}">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#login">Login</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </header><!-- /header -->
+
+    <section class="content">
+        <div class="container">
+            {% block content %}
+                <h2>Visit the tuto in: <a href="http://code.tutsplus.com/tutorials/an-introduction-to-pythons-flask-framework--net-28822" title="">Intro Flask</a></h2>
+            {% endblock content %}
+        </div>
+
+    </section>
+
+    <footer>
+        <p class="navbar-text navbar-inverse navbar-fixed-bottom text-center" style="color:#fff;">Copyright Codec - 2015.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript" charset="utf-8" ></script>
+</body>
+</html>
