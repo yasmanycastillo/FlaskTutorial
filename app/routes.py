@@ -12,7 +12,7 @@ app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = "yasmany003@gmail.com"
-app.config['MAIL_PASSWORD'] = "yade161209yaco003"
+app.config['MAIL_PASSWORD'] = "pass"
 
 mail.init_app(app)
 
